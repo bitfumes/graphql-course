@@ -7,11 +7,15 @@ const app = express();
 const schema = buildSchema(`
     type Query{
         name: String,
-        email:String
+        email:String,
+        age: Float,
+        isDeveloper : Boolean
     }
 `);
 
 const root = {
+  isDeveloper: () => 1,
+  age: () => 2.4,
   name: () => {
     return "Sarthak";
   },
