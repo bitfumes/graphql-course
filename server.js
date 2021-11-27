@@ -5,10 +5,18 @@ const { graphqlHTTP } = require("express-graphql");
 const app = express();
 
 const schema = buildSchema(`
+    type Person {
+      name: String
+      email:String,
+    }
+
+    type Developer {
+      profile: Person,
+      experience: Int,
+    }
+
     type Query{
-        name: String,
-        email:String,
-        age: Float,
+        sarthak: Developer,
         isDeveloper : Boolean
     }
 `);
@@ -21,6 +29,12 @@ const root = {
   },
   email: () => {
     return "sarthak@bitfumes.com";
+  },
+  sarthak: () => {
+    return {
+      profile: { name: "Sarthak", email: "sarthak@bitfumes.com" },
+      experience: 6,
+    };
   },
 };
 
