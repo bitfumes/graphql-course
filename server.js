@@ -12,12 +12,14 @@ const schema = buildSchema(`
     }
 
     type Query{
-      users: [Person]
+      users: [Person],
+      user(id: Int): Person
     }
 `);
 
 const root = {
   users: () => usersData,
+  user: ({ id }) => usersData.find((user) => user.id === id),
 };
 
 app.use(
