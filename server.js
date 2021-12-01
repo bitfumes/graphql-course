@@ -5,6 +5,8 @@ const usersData = require("./users.json");
 
 const app = express();
 
+let fakeDb = {};
+
 const schema = buildSchema(`
     type Person {
       name: String,
@@ -14,12 +16,19 @@ const schema = buildSchema(`
     type Query{
       users: [Person],
       user(id: Int): Person
+      getMsg : String
+    }
+
+    type Mutation {
+      addMsg(msg: String): String
     }
 `);
 
 const root = {
   users: () => usersData,
   user: ({ id }) => usersData.find((user) => user.id === id),
+  addMsg: ({ msg }) => (fakeDb.message = msg),
+  getMsg: () => fakeDb.message,
 };
 
 app.use(
