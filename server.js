@@ -28,9 +28,15 @@ const schema = buildSchema(`
       getSpace(id:ID!) : Space !
     }
 
+    input SpaceInput {
+      name:String
+      rent:String
+    }
+
     type Mutation {
       addMsg(msg: String): String
-      createSpace(name:String,rent:String) : Space!
+      createSpace(input: SpaceInput) : Space!
+      updateSpace(id:ID!, input: SpaceInput) : Space!
     }
 `);
 
@@ -39,11 +45,20 @@ const root = {
   user: ({ id }) => usersData.find((user) => user.id === id),
   addMsg: ({ msg }) => (fakeDb.message = msg),
   getMsg: () => fakeDb.message,
-  createSpace: ({ name, rent }) =>
-    (fakeDb[fakeDb.length] = { id: fakeDb.length, name, rent }),
+  createSpace: ({ input }) =>
+    (fakeDb[fakeDb.length] = {
+      id: fakeDb.length,
+      name: input.name,
+      rent: input.rent,
+    }),
 
   getSpace: ({ id }) => {
     return fakeDb.find((space) => space.id == id);
+  },
+  updateSpace: ({ id, input }) => {
+    const index = id - 1;
+    fakeDb[index] = { id, name: input.name, rent: input.rent };
+    return fakeDb[index];
   },
 };
 
