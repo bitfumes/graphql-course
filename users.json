@@ -2,11 +2,35 @@
   {
     "id": 1,
     "name": "Sarthak",
-    "email": "Sarthak@bitfumes.com"
+    "email": "Sarthak@bitfumes.com",
+    "pet": "tiger",
+    "petName": "tig"
   },
   {
     "id": 2,
     "name": "John",
-    "email": "john@bitfumes.com"
+    "email": "john@bitfumes.com",
+    "pet": "blue-whale",
+    "petName": "neela"
+  },
+  {
+    "id": 3,
+    "name": "Joe",
+    "email": "joe@bitfumes.com",
+    "pet": "crocodile",
+    "petName": "croku"
+  },
+  {
+    "id": 4,
+    "name": "Jani",
+    "email": "jani@bitfumes.com",
+    "pet": "crocodile"
+  },
+  {
+    "id": 5,
+    "name": "Alfred",
+    "email": "alfred@bitfumes.com",
+    "pet": "tiger",
+    "petName": "sheru"
   }
 ]

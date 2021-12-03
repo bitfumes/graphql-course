@@ -12,8 +12,11 @@ let fakeDb = [
 
 const schema = buildSchema(`
     type Person {
-      name: String,
+      id: Int!
+      name: String
       email: String
+      pet: String
+      petName: String
     }
 
     type Space {
