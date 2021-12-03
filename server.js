@@ -6,8 +6,8 @@ const usersData = require("./users.json");
 const app = express();
 
 let fakeDb = [
-  { id: 1, name: "office", rent: "$25" },
-  { id: 2, name: "co-working", rent: "$10" },
+  { id: 1, name: "office", rent: "$25", status: "available" },
+  { id: 2, name: "co-working", rent: "$10", status: "not_available" },
 ];
 
 const schema = buildSchema(`
@@ -22,6 +22,7 @@ const schema = buildSchema(`
     type Space {
       name: String
       rent: String
+      status: String
     }
 
     type Query{
@@ -29,11 +30,18 @@ const schema = buildSchema(`
       user(id: Int): Person
       getMsg : String
       getSpace(id:ID!) : Space !
+      spaces(status: STATUS): [Space!]!
     }
 
     input SpaceInput {
       name:String
       rent:String
+      status: STATUS
+    }
+
+    enum STATUS {
+      available
+      not_available
     }
 
     type Mutation {
@@ -51,8 +59,7 @@ const root = {
   createSpace: ({ input }) =>
     (fakeDb[fakeDb.length] = {
       id: fakeDb.length,
-      name: input.name,
-      rent: input.rent,
+      ...input,
     }),
 
   getSpace: ({ id }) => {
@@ -60,8 +67,14 @@ const root = {
   },
   updateSpace: ({ id, input }) => {
     const index = id - 1;
-    fakeDb[index] = { id, name: input.name, rent: input.rent };
+    fakeDb[index] = { id, ...input };
     return fakeDb[index];
+  },
+  spaces: ({ status }) => {
+    if (status) {
+      return fakeDb.filter((space) => space.status === status);
+    }
+    return fakeDb;
   },
 };
 
