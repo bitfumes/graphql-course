@@ -2,8 +2,11 @@ const CharacterData = require("./harrypotter.json");
 
 const resolvers = {
   Query: {
-    characters() {
-      return CharacterData;
+    humans() {
+      return CharacterData.filter((cha) => !cha.species);
+    },
+    nonHumans() {
+      return CharacterData.filter((cha) => !!cha.species);
     },
   },
 };

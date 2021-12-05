@@ -12,8 +12,20 @@ const types = gql`
     female
   }
 
-  type Character {
-    id: ID
+  interface Character {
+    id: ID!
+    name: String
+    gender: GENDER
+  }
+
+  type NonHuman implements Character {
+    id: ID!
+    name: String
+    gender: GENDER
+  }
+
+  type Human implements Character {
+    id: ID!
     name: String
     gender: GENDER
     dateOfBirth: String
@@ -23,7 +35,8 @@ const types = gql`
   }
 
   type Query {
-    characters: [Character!]!
+    humans: [Human!]!
+    nonHumans: [NonHuman!]!
   }
 `;
 
