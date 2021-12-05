@@ -22,6 +22,7 @@ const types = gql`
     id: ID!
     name: String
     gender: GENDER
+    species: String
   }
 
   type Human implements Character {
@@ -37,6 +38,7 @@ const types = gql`
   type Query {
     humans: [Human!]!
     nonHumans: [NonHuman!]!
+    characters: [Character!]!
   }
 `;
 
