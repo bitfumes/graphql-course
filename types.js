@@ -41,6 +41,18 @@ const types = gql`
     nonHumans: [NonHuman!]!
     characters: [Character!]!
   }
+
+  input CreateInput {
+    name: String!
+    gender: GENDER!
+    dateOfBirth: String!
+    actor: String!
+    image: String!
+  }
+
+  type Mutation {
+    createCharacter(data: CreateInput!): Human
+  }
 `;
 
 module.exports = types;

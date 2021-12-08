@@ -36,6 +36,13 @@ const resolvers = {
       return characters;
     },
   },
+  Mutation: {
+    createCharacter(_, { data }, { characters }) {
+      data = { ...data, id: characters.length + 1 };
+      characters.push(data);
+      return data;
+    },
+  },
 };
 
 module.exports = resolvers;
