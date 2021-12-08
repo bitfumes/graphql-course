@@ -1,0 +1,32 @@
+[
+  {
+    "character_id": 1,
+    "wood": "holly",
+    "core": "phoenix feather",
+    "length": 11
+  },
+  {
+    "character_id": 2,
+    "wood": "vine",
+    "core": "dragon heartstring",
+    "length": null
+  },
+  {
+    "character_id": 3,
+    "wood": "willow",
+    "core": "unicorn tail-hair",
+    "length": 14
+  },
+  {
+    "character_id": 4,
+    "wood": "hawthorn",
+    "core": "unicorn tail-hair",
+    "length": 10
+  },
+  {
+    "character_id": 5,
+    "wood": "ash",
+    "core": "unicorn hair",
+    "length": 12.25
+  }
+]

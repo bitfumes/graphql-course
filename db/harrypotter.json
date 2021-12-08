@@ -5,11 +5,6 @@
     "gender": "male",
     "dateOfBirth": "31-07-1980",
     "actor": "Daniel Radcliffe",
-    "wand": {
-      "wood": "holly",
-      "core": "phoenix feather",
-      "length": 11
-    },
     "image": "http://hp-api.herokuapp.com/images/harry.jpg"
   },
   {
@@ -18,11 +13,6 @@
     "gender": "female",
     "dateOfBirth": "19-09-1979",
     "actor": "Emma Watson",
-    "wand": {
-      "wood": "vine",
-      "core": "dragon heartstring",
-      "length": null
-    },
     "image": "http://hp-api.herokuapp.com/images/hermione.jpeg"
   },
   {
@@ -31,12 +21,6 @@
     "gender": "male",
     "dateOfBirth": "01-03-1980",
     "actor": "Rupert Grint",
-    "wand": {
-      "wood": "willow",
-      "core": "unicorn tail-hair",
-      "length": 14
-    },
-
     "image": "http://hp-api.herokuapp.com/images/ron.jpg"
   },
   {
@@ -45,11 +29,6 @@
     "gender": "male",
     "dateOfBirth": "05-06-1980",
     "actor": "Tom Felton",
-    "wand": {
-      "wood": "hawthorn",
-      "core": "unicorn tail-hair",
-      "length": 10
-    },
     "image": "http://hp-api.herokuapp.com/images/draco.jpg"
   },
   {
@@ -57,11 +36,6 @@
     "name": "Cedric Diggory",
     "gender": "male",
     "dateOfBirth": "",
-    "wand": {
-      "wood": "ash",
-      "core": "unicorn hair",
-      "length": 12.25
-    },
     "actor": "Robert Pattinson",
     "image": "http://hp-api.herokuapp.com/images/cedric.png"
   },

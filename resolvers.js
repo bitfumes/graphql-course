@@ -1,4 +1,5 @@
-const CharacterData = require("./harrypotter.json");
+const CharacterData = require("./db/harrypotter.json");
+const wands = require("./db/wands.json");
 
 const resolvers = {
   Character: {
@@ -14,8 +15,18 @@ const resolvers = {
       return null;
     },
   },
+  Human: {
+    wand(parent) {
+      return wands.find((item) => item.character_id === parent.id);
+    },
+  },
+  Wand: {
+    length(parent) {
+      return parent.length ?? 0;
+    },
+  },
   Query: {
-    humans() {
+    humans(parent) {
       return CharacterData.filter((cha) => !cha.species);
     },
     nonHumans() {
