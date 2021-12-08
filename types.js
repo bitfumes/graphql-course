@@ -37,6 +37,7 @@ const types = gql`
 
   type Query {
     humans: [Human!]!
+    human(id: Int!): Human
     nonHumans: [NonHuman!]!
     characters: [Character!]!
   }
