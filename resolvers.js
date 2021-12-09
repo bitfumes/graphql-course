@@ -36,23 +36,17 @@ const resolvers = {
       });
     },
     nonHumans(_, __, { Character }) {
-      return Character.findAll({
-        where: {
-          species: {
-            [Op.ne]: null,
-          },
-        },
-      });
+      return Character.findAll({});
     },
     characters(_, __, { Character }) {
       return Character.findAll();
     },
   },
   Mutation: {
-    createCharacter(_, { data }, { characters }) {
-      data = { ...data, id: characters.length + 1 };
-      characters.push(data);
-      return data;
+    async createCharacter(_, { data }, { Character }) {
+      id = (await Character.count()) + 1;
+      data = { ...data, id };
+      return await Character.create(data);
     },
   },
 };

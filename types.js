@@ -45,9 +45,10 @@ const types = gql`
   input CreateInput {
     name: String!
     gender: GENDER!
-    dateOfBirth: String!
-    actor: String!
-    image: String!
+    dateOfBirth: String
+    actor: String
+    image: String
+    species: String
   }
 
   type Mutation {
