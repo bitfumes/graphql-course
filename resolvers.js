@@ -1,3 +1,5 @@
+const { Op } = require("sequelize");
+
 const resolvers = {
   Character: {
     __resolveType(character, context, info) {
@@ -23,17 +25,27 @@ const resolvers = {
     },
   },
   Query: {
-    humans(_, __, { characters }) {
-      return characters.filter((cha) => !cha.species);
+    humans(_, __, { Character }) {
+      return Character.findAll();
     },
-    human(_, { id }, { characters }) {
-      return characters.find((cha) => cha.id === id);
+    human(_, { id }, { Character }) {
+      return Character.findAll({
+        where: {
+          id: id,
+        },
+      });
     },
-    nonHumans(_, __, { characters }) {
-      return characters.filter((cha) => !!cha.species);
+    nonHumans(_, __, { Character }) {
+      return Character.findAll({
+        where: {
+          species: {
+            [Op.ne]: null,
+          },
+        },
+      });
     },
-    characters(_, __, { characters }) {
-      return characters;
+    characters(_, __, { Character }) {
+      return Character.findAll();
     },
   },
   Mutation: {
